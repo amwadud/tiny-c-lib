@@ -33,13 +33,19 @@ static size_t	ft_countword(const char *s, char c)
 
 static void	ft_free_words(char **words, size_t count)
 {
-	size_t i = 0;
-	while (i < count)
-	{
-		free(words[i]);
-		i++;
-	}
+	while (count--)
+		free(words[count]);
 	free(words);
+}
+
+size_t	ft_wordlen(const char* s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
 }
 
 char	**ft_split(char const *s, char c)
@@ -50,6 +56,8 @@ char	**ft_split(char const *s, char c)
 	char	**res;
 
 	res = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
+	if (!res)
+		return (NULL);
 	count = 0;
 	i = 0;
 	while (s[i])
@@ -57,13 +65,13 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		wlen = 0;
-		while (s[i + wlen] && s[i + wlen] != c)
-			wlen++;
+		wlen = ft_wordlen(s + i, ' ');
 		if (wlen > 0)
 		{
 			res[count] = (char *)malloc(wlen + 1);
 			if (!res[count])
 			{
+				ft_free_words(res, count);
 				return (NULL);
 			}
 			ft_memcpy(res[count], s + i, wlen);
@@ -76,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char	**s = ft_split("  Hello world  ", ' ');
 	size_t	i;
@@ -87,4 +95,4 @@ char	**ft_split(char const *s, char c)
 		printf("%s\n", s[i]);
 		i++;
 	}
-} */
+}
