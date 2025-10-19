@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:14 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/14 22:18:14 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:49:10 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res[end - begin + 1] = '\0';
 	return (res);
 }
+
