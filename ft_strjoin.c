@@ -28,15 +28,22 @@ static char	*ft_strcpy(char *dst, const char *src)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
-	size_t	s1len;
-	size_t	s2len;
+	size_t	resize;
 
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	res = (char *)malloc(s1len + s2len + 1);
+	resize = ft_strlen(s1) + ft_strlen(s2) + 1;
+	res = (char *)malloc(resize);
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, s1, s1len + s2len + 1);
-	ft_strlcat(res, s1, s1len + s2len + 1);
+	ft_strlcpy(res, s1, resize);
+	ft_strlcat(res, s1, resize);
 	return (res);
+}
+
+int	main(void)
+{
+	char	*s1 = "Hello ";
+	char	*s2 = "World";
+	char	*us = ft_strjoin(s1, s2);
+#include <stdio.h>
+	printf("%s\n", us);
 }

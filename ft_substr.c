@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:05 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/18 15:47:33 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:28:50 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (res);
 }
 
-/* int	main(void)
+/*
+int	main(void)
 {
 	char	*s = "Hello world";
 	char	*r;
@@ -44,4 +45,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	r = ft_substr(s, 4, 5); 
 	#include <stdio.h>
 	printf("%s\n", r);
-} */
+}
+*/

@@ -6,13 +6,13 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:20:24 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/19 07:08:20 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/19 20:26:00 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countword(const char *s, char c)
+static size_t	ft_countwords(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -31,14 +31,14 @@ static size_t	ft_countword(const char *s, char c)
 	return (count);
 }
 
-static void	ft_free_words(char **words, size_t count)
+static void	ft_freewords(char **words, size_t count)
 {
 	while (count--)
 		free(words[count]);
 	free(words);
 }
 
-size_t	ft_wordlen(const char* s, char c)
+size_t	ft_wordlen(const char *s, char c)
 {
 	size_t	len;
 
@@ -48,14 +48,25 @@ size_t	ft_wordlen(const char* s, char c)
 	return (len);
 }
 
+char	*ft_dupwrd(const char *word, size_t len)
+{
+	char	*res;
+
+	res = (char *)malloc(len + 1);
+	if (!res)
+		return (NULL);
+	ft_memcpy(res, word, len);
+	res[len] = '\0';
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
-	size_t	wlen;
 	size_t	count;
 	char	**res;
 
-	res = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
+	res = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
 	if (!res)
 		return (NULL);
 	count = 0;
@@ -64,27 +75,21 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[i] && s[i] == c)
 			i++;
-		wlen = 0;
-		wlen = ft_wordlen(s + i, ' ');
-		if (wlen > 0)
+		if (!s[i])
+			break;
+		res[count] = ft_dupwrd(s + i, ft_wordlen(s + i, ' '));
+		if (!res)
 		{
-			res[count] = (char *)malloc(wlen + 1);
-			if (!res[count])
-			{
-				ft_free_words(res, count);
-				return (NULL);
-			}
-			ft_memcpy(res[count], s + i, wlen);
-			res[count][wlen] = '\0';
-			count++;
+			ft_freewords(res, count);
+			return (NULL);
 		}
-		i += wlen;
+		i += ft_wordlen(s + i, ' ');
 	}
 	res[count] = NULL;
 	return (res);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char	**s = ft_split("  Hello world  ", ' ');
 	size_t	i;
@@ -95,4 +100,14 @@ int	main(void)
 		printf("%s\n", s[i]);
 		i++;
 	}
+} */
+
+/* res[count] = (char *)malloc(wlen + 1);
+if (!res[count])
+{
+	ft_freewords(res, count);
+	return (NULL);
 }
+ft_memcpy(res[count], s + i, wlen);
+res[count][wlen] = '\0';
+count++; */
