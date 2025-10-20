@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:22:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/18 15:54:07 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/20 04:42:59 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,44 @@ static size_t	ft_getnumlen(int n)
 	return (len);
 }
 
+int	ft_abs(int n)
+{
+	if (n > 0)
+		return (n);
+	return (-n);
+}
+
 char	*ft_itoa(int n)
 {
+	int		sign;
 	char	*res;
 	size_t	i;
 
-	res = malloc(ft_getnumlen(n) + 1);
-	if (!res)
-	{
-		return (NULL);
-	}
 	i = 0;
-	while (n != 0)
+	sign = 1;
+	res = malloc(ft_getnumlen(n) + 1 + (n < 0));
+	sign = -1 * (n < 0) + (n >= 0);
+	if (!res)
+		return (NULL);
+	if (n == 0)
+		res[i++] = '0';
+	while (n)
 	{
-		res[i] = (n % 10) + '0';
+		res[i++] = ft_abs(n % 10) + '0';
 		n /= 10;
-		i++;
 	}
+	if (sign == -1)
+		res[i++] = '-';
 	res[i] = '\0';
 	ft_strrev(res);
 	return (res);
 }
+
+/* int	main(void)
+{
+	char	*s;
+	s = ft_itoa(-42);
+#include <stdio.h>
+	printf("%s\n", s);
+}
+*/
