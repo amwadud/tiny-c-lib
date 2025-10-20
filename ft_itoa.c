@@ -58,7 +58,6 @@ char	*ft_itoa(int n)
 	size_t	i;
 
 	i = 0;
-	sign = 1;
 	res = malloc(ft_getnumlen(n) + 1 + (n < 0));
 	sign = -1 * (n < 0) + (n >= 0);
 	if (!res)
