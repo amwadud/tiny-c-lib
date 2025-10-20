@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:20:24 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/19 20:26:00 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/20 05:19:05 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,21 @@ static size_t	ft_countwords(const char *s, char c)
 	{
 		while (s[i] == c && s[i])
 			i++;
-		if (s[i] != c && s[i])
-			count++;
+		if (!s[i])
+			break;
+		count++;
 		while (s[i] != c && s[i])
 			i++;
 	}
 	return (count);
 }
 
-static void	ft_freewords(char **words, size_t count)
+/* static void	ft_freewords(char **words, size_t count)
 {
 	while (count--)
 		free(words[count]);
 	free(words);
-}
+} */
 
 size_t	ft_wordlen(const char *s, char c)
 {
@@ -55,9 +56,8 @@ char	*ft_dupwrd(const char *word, size_t len)
 	res = (char *)malloc(len + 1);
 	if (!res)
 		return (NULL);
-	ft_memcpy(res, word, len);
-	res[len] = '\0';
-	return (NULL);
+	ft_strlcpy(res, word, len + 1);
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
@@ -77,37 +77,29 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (!s[i])
 			break;
-		res[count] = ft_dupwrd(s + i, ft_wordlen(s + i, ' '));
-		if (!res)
+		res[count++] = ft_dupwrd(s + i, ft_wordlen(s + i, ' '));
+		/* if (!res)
 		{
 			ft_freewords(res, count);
 			return (NULL);
-		}
+		} */
 		i += ft_wordlen(s + i, ' ');
 	}
 	res[count] = NULL;
 	return (res);
 }
 
-/* int	main(void)
+/* 
+int	main(void)
 {
 	char	**s = ft_split("  Hello world  ", ' ');
 	size_t	i;
-	#include <stdio.h>
+#include <stdio.h>
 	i = 0;
 	while (s[i] != NULL)
 	{
 		printf("%s\n", s[i]);
 		i++;
 	}
-} */
-
-/* res[count] = (char *)malloc(wlen + 1);
-if (!res[count])
-{
-	ft_freewords(res, count);
-	return (NULL);
 }
-ft_memcpy(res[count], s + i, wlen);
-res[count][wlen] = '\0';
-count++; */
+*/

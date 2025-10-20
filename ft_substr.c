@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:05 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/19 23:28:50 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/20 05:54:46 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	size_t	slen;
 	char	*res;
 
@@ -26,13 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		res[i] = s[start + i];
-		i++;
-	}
-	res[i] = '\0';
+	ft_strlcpy(res, s + start, len + 1);
 	return (res);
 }
 

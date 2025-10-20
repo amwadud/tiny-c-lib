@@ -6,13 +6,13 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:17:56 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/19 23:47:45 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/20 02:04:58 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c - ('x' - 'X'));
+		return (c - 'A' + 'a');
 	return (c);
 }

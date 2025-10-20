@@ -6,13 +6,13 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:17:47 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/17 00:22:13 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/20 01:46:55 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c + ('x' - 'X'));
+		return (c - 'a' + 'A');
 	return (c);
 }
