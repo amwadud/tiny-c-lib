@@ -1,5 +1,6 @@
 update.sh
 tests.c
+test
 tests/
 .clang-format
 .DS_Store
