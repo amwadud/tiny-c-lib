@@ -24,7 +24,7 @@ static size_t	ft_countwords(const char *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 		if (!s[i])
-			break;
+			break ;
 		count++;
 		while (s[i] != c && s[i])
 			i++;
@@ -32,14 +32,14 @@ static size_t	ft_countwords(const char *s, char c)
 	return (count);
 }
 
-/* static void	ft_freewords(char **words, size_t count)
+static void	ft_freewords(char **words, size_t count)
 {
 	while (count--)
 		free(words[count]);
 	free(words);
-} */
+}
 
-size_t	ft_wordlen(const char *s, char c)
+static size_t	ft_wordlen(const char *s, char c)
 {
 	size_t	len;
 
@@ -76,23 +76,22 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		if (!s[i])
-			break;
-		res[count++] = ft_dupwrd(s + i, ft_wordlen(s + i, ' '));
-		/* if (!res)
+			break ;
+		res[count++] = ft_dupwrd(s + i, ft_wordlen(s + i, c));
+		if (!res)
 		{
 			ft_freewords(res, count);
 			return (NULL);
-		} */
-		i += ft_wordlen(s + i, ' ');
+		}
+		i += ft_wordlen(s + i, c);
 	}
 	res[count] = NULL;
 	return (res);
 }
 
-/* 
-int	main(void)
+/* int	main(void)
 {
-	char	**s = ft_split("  Hello world  ", ' ');
+	char	**s = ft_split("This-is-libft", '-');
 	size_t	i;
 #include <stdio.h>
 	i = 0;
@@ -101,5 +100,4 @@ int	main(void)
 		printf("%s\n", s[i]);
 		i++;
 	}
-}
-*/
+} */
