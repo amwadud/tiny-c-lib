@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:14 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/20 06:48:57 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/22 08:32:29 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(res, s1 + begin, end - begin + 2);
 	return (res);
 }
-// TODO: FINISH THIS.
+/* Simple test case:
 int	main(void)
 {
 	char	*res = ft_strtrim("  \tHello World\tkk  \t  ", " \t");
@@ -42,3 +42,4 @@ int	main(void)
 	printf("%s\n", res);
 	free(res);
 }
+*/

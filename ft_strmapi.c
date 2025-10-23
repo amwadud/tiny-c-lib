@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:42 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/14 22:18:42 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/23 06:45:28 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*res;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	res = ft_strdup(s);
 	if (!res)
 		return (NULL);

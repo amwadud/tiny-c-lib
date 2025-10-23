@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:20:24 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/20 05:19:05 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:00:45 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ char	**ft_split(char const *s, char c)
 	size_t	count;
 	char	**res;
 
-	res = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
+	if (!s)
+		return (NULL);
+	res = malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
 	if (!res)
 		return (NULL);
 	count = 0;
@@ -91,7 +93,8 @@ char	**ft_split(char const *s, char c)
 
 /* int	main(void)
 {
-	char	**s = ft_split("This-is-libft", '-');
+	char	**s = ft_split(".., i am a ,student, "
+	"at, 1337, coding, school,,", ',');
 	size_t	i;
 #include <stdio.h>
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:19:36 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/20 04:43:10 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/20 22:46:40 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static size_t ft_sstrlen(const char *s, size_t size)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (i < size && s[i])
 		i++;

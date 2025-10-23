@@ -6,12 +6,14 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:20:38 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/14 22:20:38 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/22 12:07:55 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
+ * FIXME: Gha katkhawar hna.
+ */
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == (-2147483648))
