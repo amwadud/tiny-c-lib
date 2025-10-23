@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:22:06 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/23 06:20:16 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:28:36 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!f)
+	if (!f || !lst)
 		return ;
 	while (lst)
 	{

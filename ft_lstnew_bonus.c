@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:21:45 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/23 10:15:57 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:10:39 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ t_list	*ft_lstnew(void *content)
 	return (lst);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
 	int	k = 10;
 	t_list *l = ft_lstnew(&k);
 	printf("Content is: %i\nnext is: %p\n", *((int *)l->content), l->next);
-}
+} */
