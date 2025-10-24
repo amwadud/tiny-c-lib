@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:21:45 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/23 20:10:39 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:47:02 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*lst;
 
-	lst = malloc(sizeof(t_list)); /* TODO: Why not casting here? */
+	lst = malloc(sizeof(t_list));
 	if (!lst)
 		return (NULL);
 	lst->content = content;

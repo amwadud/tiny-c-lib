@@ -6,15 +6,11 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:21:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/23 20:39:06 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:47:28 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
- * FIXME: Fix this, maby ft_lstadd_back function is wrong.
- **/
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -64,6 +60,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (head);
 } */
 
+/*
 void	tdel(void *val)
 {
 	(void)val;
@@ -90,4 +87,4 @@ int	main(void)
 	t_list *lm = ft_lstmap(l1, tf, tdel);
 	ft_lstiter(lm, dis_lst);
 }
-
+*/

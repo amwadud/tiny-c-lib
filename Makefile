@@ -80,10 +80,6 @@ $(NAME):	$(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	@echo -e "$(INFO) Mandatory part is done!"
 
-custom:		$(C_OBJ)
-	$(AR) $(NAME) $(C_OBJ)
-	@echo -e "$(INFO) Custom part is done!"
-
 bonus:		$(B_OBJ)
 	@$(AR) $(NAME) $(B_OBJ)
 	@echo -e "$(OK) Bonus part is done!"
@@ -101,6 +97,6 @@ fclean:		clean
 
 re: fclean all
 
-.PHONY:		all clean fclean re bonus custom
+.PHONY:		all clean fclean re bonus
 
 # end
