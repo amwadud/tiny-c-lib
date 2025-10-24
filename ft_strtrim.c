@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:14 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/22 08:32:29 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:32:10 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,22 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		begin;
 	int		end;
-	char	*res;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
-	if (!set || !*set)
-		return ft_strdup(s1);
 	begin = 0;
 	while (s1[begin] && ft_strchr(set, s1[begin]))
 		begin++;
 	end = ft_strlen(s1) - 1;
 	while (end > begin && ft_strchr(set, s1[end]))
 		end--;
-	res = (char *)malloc(end - begin + 2);
-	if (!res)
-		return (NULL);
-	ft_strlcpy(res, s1 + begin, end - begin + 2);
-	return (res);
+	return (ft_substr(s1, begin, end - begin + 1));
 }
-/* Simple test case:
-int	main(void)
+
+/* int	main(void)
 {
-	char	*res = ft_strtrim("  \tHello World\tkk  \t  ", " \t");
+	char	*res = ft_strtrim("  \tHello World\tkk  \t  ", NULL);
 #include <stdio.h>
-	printf("%s\n", res);
+	printf("%p\n", res);
 	free(res);
-}
-*/
+} */
