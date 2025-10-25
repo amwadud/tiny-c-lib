@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:19:36 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/20 22:46:40 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/25 14:49:56 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (dstsize == dstlen)
 		return (dstsize + srclen);
 	i = 0;
-	while (i < (dstsize - 1 - dstlen))
+	while (i < (dstsize - dstlen - 1) && src[i])
 	{
 		dst[dstlen + i] = src[i];
 		i++;

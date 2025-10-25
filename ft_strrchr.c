@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:18:22 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/22 08:34:51 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/25 12:28:19 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = ft_strlen(s) - 1;
+	if (!s)
+		return (NULL);
+	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char)c)
 			return ((char *)s + i);
 		i--;
 	}
