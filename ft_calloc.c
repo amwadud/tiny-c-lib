@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:23:35 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/22 14:40:50 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/25 01:58:17 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*res;
 
-	if (size != 0 && count > (size_t)-1 / size)
+	if (size && count > (size_t)-1 / size)
 		return (NULL);
+	if (!count || !size)
+		return (malloc(1));
 	res = malloc(count * size);
 	if (!res)
 		return (NULL);
