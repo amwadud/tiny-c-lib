@@ -59,13 +59,12 @@ $(NAME):	$(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	@echo "Mandatory part is done!"
 
-bonus:		$(bonus_relinking_trick)
+bonus:		.bonus_remove_relinking_trick
 	@echo "Bonus part is done!"
 
 .bonus_remove_relinking_trick: $(B_OBJ)
 	$(AR) $(NAME) $(B_OBJ)
-	touch .bonus_remove_relinking_trick
-	@echo "Bonus part is done!"
+	@touch .bonus_remove_relinking_trick
 
 %.o: %.c
 	$(CC) $(CFLAGS)    -c $< -o $@
@@ -76,7 +75,7 @@ clean:
 
 fclean:		clean
 	$(RM) $(NAME)
-	$(RM) .bonus_remove_relinking_trick
+	@$(RM) .bonus_remove_relinking_trick
 	@echo "$(NAME) has been deleted."
 
 re: fclean all
