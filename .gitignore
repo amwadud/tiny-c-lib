@@ -1,6 +1,7 @@
 update.sh
 tests.c
 test
+libftTester
 tests/
 .clang-format
 .DS_Store

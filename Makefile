@@ -14,7 +14,7 @@
 # libft
 #
 # @Makefile
-# @version 0.1
+# @version 4.4.1
 
 # ---------------------------------------------------------------------------- #
 #                              Build Configuration                             #
@@ -28,27 +28,6 @@ AR			=	ar rcs
 RM			=	rm -f
 
 # ---------------------------------------------------------------------------- #
-#                                   Colors                                     #
-# ---------------------------------------------------------------------------- #
-
-RED			=	\e[3;31m
-GREEN		=	\e[3;32m
-YELLOW		=	\e[3;33m
-CYAN		=	\e[3;96m
-END			=	\e[0m
-
-SHELL := /bin/bash
-
-# ---------------------------------------------------------------------------- #
-#                                  Messages                                    #
-# ---------------------------------------------------------------------------- #
-
-OK			=	$(GREEN)[OK]$(END)
-KO			=	$(RED)[KO]$(END)
-INFO		=	$(CYAN)[INFO]$(END)
-WARN		=	$(YELLOW)[WARN]$(END)
-
-# ---------------------------------------------------------------------------- #
 #                                 Sources                                      #
 # ---------------------------------------------------------------------------- #
 
@@ -60,43 +39,49 @@ SRC			=	ft_atoi.c       ft_bzero.c     ft_calloc.c    ft_isalnum.c ft_isalpha.c 
 				ft_strdup.c     ft_striteri.c  ft_strjoin.c   ft_strlcat.c ft_strlcpy.c    \
 				ft_strlen.c     ft_strmapi.c   ft_strncmp.c   ft_strnstr.c ft_strrchr.c    \
 				ft_strtrim.c    ft_substr.c    ft_tolower.c   ft_toupper.c
-OBJ			=	$(patsubst %.c, %.o, $(SRC))
+OBJ = $(SRC:.c=.o)
 
 # Bonus
 B_SRC		=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 				ft_lstdelone_bonus.c   ft_lstiter_bonus.c      ft_lstlast_bonus.c  \
 				ft_lstmap_bonus.c      ft_lstnew_bonus.c       ft_lstsize_bonus.c
-B_OBJ		=	$(patsubst %.c, %.o, $(B_SRC))
+B_OBJ = $(B_SRC:.c=.o)
 
 # ---------------------------------------------------------------------------- #
 #                                   Rules                                      #
 # ---------------------------------------------------------------------------- #
 
 all:		$(NAME)
-	@echo -e "$(GREEN) libft.a has been successfuly built$(END)"
+	@echo "libft.a has been successfuly built"
 
 $(NAME):	$(OBJ)
-	@echo -e "$(CYAN) Object files has been built, Now creating libft.a...$(END)"
+	@echo "Object files has been built, Now creating libft.a..."
 	$(AR) $(NAME) $(OBJ)
-	@echo -e "$(INFO) Mandatory part is done!"
+	@echo "Mandatory part is done!"
 
-bonus:		$(B_OBJ)
-	@$(AR) $(NAME) $(B_OBJ)
-	@echo -e "$(OK) Bonus part is done!"
+bonus:		$(bonus_relinking_trick)
+	@echo "Bonus part is done!"
+
+.bonus_remove_relinking_trick: $(B_OBJ)
+	$(AR) $(NAME) $(B_OBJ)
+	touch .bonus_remove_relinking_trick
+	@echo "Bonus part is done!"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS)    -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ) $(B_OBJ) $(C_OBJ)
-	@echo -e "$(WARN) Object files has been deleted."
+	$(RM) $(OBJ) $(B_OBJ)
+	@echo "Object files has been deleted."
 
 fclean:		clean
-	@$(RM) $(NAME)
-	@echo -e "$(WARN) $(NAME) has been deleted."
+	$(RM) $(NAME)
+	$(RM) .bonus_remove_relinking_trick
+	@echo "$(NAME) has been deleted."
 
 re: fclean all
 
 .PHONY:		all clean fclean re bonus
+.SECONDARY: $(OBJ) $(B_OBJ)
 
 # end
