@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:22:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/20 22:22:59 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:49:21 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,3 @@ char	*ft_itoa(int n)
 	ft_strrev(res);
 	return (res);
 }
-
-/*
-int	main(void)
-{
-	char	*s;
-	s = ft_itoa(-42);
-#include <stdio.h>
-	printf("%s\n", s);
-}
-*/

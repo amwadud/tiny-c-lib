@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:20:24 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/22 14:00:45 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:52:22 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,3 @@ char	**ft_split(char const *s, char c)
 	res[count] = NULL;
 	return (res);
 }
-
-/* int	main(void)
-{
-	char	**s = ft_split(".., i am a ,student, "
-	"at, 1337, coding, school,,", ',');
-	size_t	i;
-#include <stdio.h>
-	i = 0;
-	while (s[i] != NULL)
-	{
-		printf("%s\n", s[i]);
-		i++;
-	}
-} */

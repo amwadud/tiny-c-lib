@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:23:46 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/23 05:08:28 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:48:53 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-
-/*
-int	main(void)
-{
-	#include <stdio.h>
-	printf("%i", ft_atoi("  +987\n"));
-	printf("%i", atoi("  +987\n"));
-	printf("%i", atoi("987\n"));
-}
-*/

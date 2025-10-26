@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:19:58 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/20 01:07:21 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:59:32 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(res, s2, resize);
 	return (res);
 }
-/*
-int	main(void)
-{
-	char	*str1 = "Wtf!";
-	// char	*str2 = "";
-	char	*res;
-
-	res = ft_strjoin(NULL, str1);
-	#include <stdio.h>
-	printf("%s\n", res);
-}
-*/
