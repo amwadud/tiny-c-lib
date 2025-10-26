@@ -6,17 +6,29 @@ This project aims to strengthen understanding of low-level programming by recrea
 
 ---
 
+<<<<<<< HEAD
 ##  Branches
+=======
+## Branches
+>>>>>>> dev
 
 * [**main**](https://github.com/aehabdelouadoud/libft/tree/main) → Stable, production-ready version.
 * [**dev**](https://github.com/aehabdelouadoud/libft/tree/dev) → Active development branch for new features and testing.
 
 ---
+<<<<<<< HEAD
 
 ## ⚙ Compilation
 
 To build the library, run:
 
+=======
+
+## Compilation
+
+To build the library, run:
+
+>>>>>>> dev
 ```bash
 make
 ```
@@ -37,7 +49,11 @@ make re        # Rebuild everything
 
 ---
 
+<<<<<<< HEAD
 ##  Usage
+=======
+## Usage
+>>>>>>> dev
 
 You can include **libft** in your C projects by linking the compiled library:
 
@@ -67,7 +83,11 @@ int main(void)
 
 ---
 
+<<<<<<< HEAD
 ##  Project Structure
+=======
+## Project Structure
+>>>>>>> dev
 
 ```
 .
@@ -79,7 +99,11 @@ int main(void)
 
 ---
 
+<<<<<<< HEAD
 ##  Features
+=======
+## Features
+>>>>>>> dev
 
 * **Memory**: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_calloc`, etc.
 * **Strings**: `ft_strlen`, `ft_strdup`, `ft_strjoin`, `ft_split`, etc.
@@ -88,7 +112,11 @@ int main(void)
 
 ---
 
+<<<<<<< HEAD
 ##  Author
+=======
+## Author
+>>>>>>> dev
 
 **AIT-EL-HAJ Abdelouadoud**
 📧 [abait-el@student.1337.ma](mailto:abait-el@student.1337.ma)

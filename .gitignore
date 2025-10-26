@@ -1,0 +1,34 @@
+update.sh
+tests.c
+test
+libftTester
+tests/
+.clang-format
+.DS_Store
+.idea
+*.log
+tmp/
+*.cache*
+*.log
+# Backup and temp files
+*~
+*.*~
+\#*
+.\#*
+\#*\#
+.\#*\#
+*.swp
+
+# Object files
+*.[oa]
+
+# Executables
+a.out
+*.out
+*.exe
+
+# Library files
+libft.a
+
+# Testing
+./tests
