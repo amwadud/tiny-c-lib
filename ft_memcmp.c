@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:21:24 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/26 10:50:08 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:25:33 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			return (*((unsigned char *)s1 + i) - *((unsigned char *)s2 + i));
 		i++;
 	}
-	return 0;
+	return (0);
 }

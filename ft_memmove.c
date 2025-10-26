@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:21:08 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/26 10:50:34 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:26:34 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	else
 		while (n--)
 			*(d++) = *(s++);
-
 	return (dst);
 }
