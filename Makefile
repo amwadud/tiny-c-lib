@@ -81,6 +81,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
-.SECONDARY: $(OBJ) $(B_OBJ)
+# .SECONDARY: $(OBJ) $(B_OBJ)
 
 # End of Makefile
