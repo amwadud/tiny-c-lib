@@ -6,13 +6,15 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 22:20:24 by abait-el          #+#    #+#             */
-/*   Updated: 2025/10/26 11:29:18 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/10/26 18:46:40 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countwords(const char *s, char c)
+typedef short int	bool;
+
+static size_t	ft_countchunks(const char *s, char c)
 {
 	size_t	count;
 
@@ -29,14 +31,22 @@ static size_t	ft_countwords(const char *s, char c)
 	return (count);
 }
 
-static void	ft_freewords(char **words, size_t count)
+static bool	ft_freechunks(char* current, char **words, size_t count)
 {
-	while (count--)
-		free(words[count]);
-	free(words);
+	bool	freed;
+
+	freed = 0;
+	if (!current)
+	{
+		while (count--)
+			free(words[count]);
+		free(words);
+		freed = 1;
+	}
+	return (freed);
 }
 
-static char	*ft_dupmvword(const char **s, char c)
+static char	*ft_strdupmv_chunk(const char **s, char c)
 {
 	char	*res;
 	size_t	len;
@@ -52,31 +62,33 @@ static char	*ft_dupmvword(const char **s, char c)
 	return (res);
 }
 
+static char	ft_skip_delims(const char **s, char c)
+{
+	while (**s && **s == c)
+		(*s)++;
+	return (**s);
+}
+
 char	**ft_split(char const *s, char c)
 {
+	char	**chunks;
 	size_t	i;
-	char	**res;
 
 	if (!s)
 		return (NULL);
-	res = malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
-	if (!res)
+	chunks = malloc(sizeof(char *) * (ft_countchunks(s, c) + 1));
+	if (!chunks)
 		return (NULL);
 	i = 0;
 	while (*s)
 	{
-		while (*s && *s == c)
-			s++;
-		if (!*s)
-			break ;
-		res[i] = ft_dupmvword(&s, c);
-		if (!res)
-		{
-			ft_freewords(res, i);
+		if (!ft_skip_delims(&s, c))
+			break;
+		chunks[i] = ft_strdupmv_chunk(&s, c);
+		if (ft_freechunks(chunks[i], chunks, i))
 			return (NULL);
-		}
 		i++;
 	}
-	res[i] = NULL;
-	return (res);
+	chunks[i] = NULL;
+	return (chunks);
 }
